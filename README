@@ -1,0 +1,9 @@
+A proof of concept implementation for the Drupal site archive format.
+
+Requires:
+Drupal 6 (http://drupal.org), 
+Backup and Migrate (http://drupal.org/project/backup_migrate),
+Backup and Migrate Files (http://drupal.org/project/backup_migrate_files)
+
+
+For mor information see: http://groups.drupal.org/node/106754
