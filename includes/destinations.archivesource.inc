@@ -48,7 +48,8 @@ class backup_migrate_files_destination_archivesource extends backup_migrate_dest
    */
   function backup_to_file($file, $settings) {
     if ($this->check_libs()) {
-      $files = $this->get_files_to_backup($this->get_location(), $settings, array(), realpath('.') . '/');
+      $exclude = array('settings.php');
+      $files = $this->get_files_to_backup($this->get_location(), $settings, $exclude, realpath('.') . '/');
       if ($files) {
         $manifest = $this->generate_manifest();
         $db = $this->get_db();
@@ -104,7 +105,7 @@ class backup_migrate_files_destination_archivesource extends backup_migrate_dest
 
     $tmpdir = realpath(file_directory_temp()) .'/'. uniqid('backup_migrate_');
     mkdir($tmpdir);
-    $filepath = $tmpdir . '/MANIFEST.txt';
+    $filepath = $tmpdir . '/MANIFEST.info';
     file_put_contents($filepath, $ini);
     return $filepath;
   }
